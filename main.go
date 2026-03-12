@@ -15,10 +15,12 @@ func main() {
 		input, err := utils.StringReader()
 		if err != nil {
 			fmt.Println(err)
+			continue
 		}
 		chose, err := strconv.Atoi(input)
 		if err != nil {
 			fmt.Println(err)
+			continue
 		}
 
 		switch chose {
@@ -28,7 +30,7 @@ func main() {
 		case 2:
 			cli.CharacteristicUp()
 		case 3:
-			cli.ShowPeron()
+			cli.ShowPerson()
 		case 0:
 			return
 		}

@@ -1,10 +1,15 @@
 package person
 
-import (
-	"fmt"
-)
+type person interface {
+	Create(string) person
+	LevelUp()
+	ResistanceUp()
+	StrengtUp()
+	ViabilityhUp()
+	Show()
+}
 
-var PersonageList []*personage
+var PersonageList = make(map[string]person)
 
 type characteristics struct {
 	resistance float64
@@ -20,43 +25,16 @@ type personage struct {
 	characteristics
 }
 
-func NewPerson(name string) personage {
-	person := personage{
-		Nickname: name,
-		damage:   3,
-		hp:       15,
-		level:    1,
-		characteristics: characteristics{
-			resistance: 5,
-			strength:   10,
-			viability:  2,
-		},
-	}
-	return person
+type Warrior struct {
+	personage
 }
 
-func (p *personage) LevelUp() {
-	p.level++
-	p.damage = p.characteristics.strength*0.2 + float64(p.level)
-	p.hp += p.viability * 0.8
+type Mage struct {
+	personage
 }
 
-func (p *personage) ResistancehUp() {
-	p.resistance++
-}
-
-func (p *personage) StrengthUp() {
-	p.strength++
-}
-
-func (p *personage) ViabilityhUp() {
-	p.viability++
-}
-
-func (p *personage) Show() {
-	fmt.Printf(
-		"\n---------------------------\nГерой %q - имеет:\n%.2f здоровья\n%.2f урона\n---------------------------\nХарактеристики:\n%.2f сопротивления к урону\n%.2f силы\n%.2f жизнеспособности\n---------------------------\nУровень персонажа: %v\n---------------------------\n",
-		p.Nickname, p.hp, p.damage, p.resistance, p.strength, p.viability, p.level)
+type Ranger struct {
+	personage
 }
 
 // Пользователь может:
