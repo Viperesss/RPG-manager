@@ -10,7 +10,7 @@ func (w *Warrior) LevelUp() {
 	w.hp += w.viability * 0.8
 }
 
-func (w *Warrior) Create(name string) person {
+func CreateWarrior(name string) person {
 	return &Warrior{
 		personage: personage{
 			Nickname: name,
@@ -32,7 +32,7 @@ func (m *Mage) LevelUp() {
 	m.hp += m.viability * 0.7
 }
 
-func (m *Mage) Create(name string) person {
+func CreateMage(name string) person {
 	return &Mage{personage: personage{
 		Nickname: name,
 		damage:   4,
@@ -53,7 +53,7 @@ func (r *Ranger) LevelUp() {
 	r.hp += r.viability * 0.7
 }
 
-func (r *Ranger) Create(name string) person {
+func CreateRanger(name string) person {
 	return &Ranger{personage: personage{
 		Nickname: name,
 		damage:   4,
@@ -72,11 +72,11 @@ func (p *personage) ResistanceUp() {
 	p.resistance++
 }
 
-func (p *personage) StrengtUp() {
+func (p *personage) StrengthUp() {
 	p.strength++
 }
 
-func (p *personage) ViabilityhUp() {
+func (p *personage) ViabilityUp() {
 	p.viability++
 }
 

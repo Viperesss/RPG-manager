@@ -1,11 +1,10 @@
 package person
 
 type person interface {
-	Create(string) person
 	LevelUp()
 	ResistanceUp()
-	StrengtUp()
-	ViabilityhUp()
+	StrengthUp()
+	ViabilityUp()
 	Show()
 }
 
