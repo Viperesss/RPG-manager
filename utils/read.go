@@ -2,6 +2,7 @@ package utils
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 	"strings"
 )
@@ -13,6 +14,9 @@ func StringReader() (string, error) {
 		return "", err
 	}
 	str := strings.Fields(input)
+	if len(str) == 0 {
+		return "", fmt.Errorf("Пустой ввод")
+	}
 
 	return str[0], nil
 }

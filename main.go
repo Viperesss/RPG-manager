@@ -9,6 +9,8 @@ import (
 )
 
 func main() {
+	defer handlePanic()
+
 	fmt.Println("CLI - RPG game")
 	for {
 		fmt.Println("Выберите действие:\n1 - Создать нового персонажа\n2 - Улучшить характеристику\n3 - Показать информацию о персонаже\n0 - Выйти")
@@ -36,4 +38,10 @@ func main() {
 		}
 	}
 
+}
+
+func handlePanic() {
+	if r := recover(); r != nil {
+		fmt.Println("Критическая ошибка:", r)
+	}
 }
