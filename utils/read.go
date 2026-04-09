@@ -3,20 +3,20 @@ package utils
 import (
 	"bufio"
 	"fmt"
-	"os"
+	"io"
 	"strings"
 )
 
-func StringReader() (string, error) {
-	reader := bufio.NewReader(os.Stdin)
+func StringReader(r io.Reader) (string, error) {
+	reader := bufio.NewReader(r)
 	input, err := reader.ReadString('\n')
 	if err != nil {
 		return "", err
 	}
-	str := strings.Fields(input)
+	str := strings.TrimSpace(input)
 	if len(str) == 0 {
 		return "", fmt.Errorf("Пустой ввод")
 	}
 
-	return str[0], nil
+	return str, nil
 }
