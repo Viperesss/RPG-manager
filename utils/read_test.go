@@ -22,6 +22,10 @@ func TestStringReader(t *testing.T) {
 			input:  "\n",
 			target: "",
 		},
+		{
+			input:  "     \n",
+			target: "",
+		},
 	}
 
 	for _, testCase := range testTable {

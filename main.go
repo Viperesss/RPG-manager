@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strconv"
 
 	"github.com/Viperesss/rpg-manager/cli"
@@ -14,7 +15,7 @@ func main() {
 	fmt.Println("CLI - RPG game")
 	for {
 		fmt.Println("Выберите действие:\n1 - Создать нового персонажа\n2 - Улучшить характеристику\n3 - Показать информацию о персонаже\n0 - Выйти")
-		input, err := utils.StringReader()
+		input, err := utils.StringReader(os.Stdin)
 		if err != nil {
 			fmt.Println(err)
 			continue

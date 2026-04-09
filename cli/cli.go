@@ -2,6 +2,7 @@ package cli
 
 import (
 	"fmt"
+	"os"
 	"strconv"
 
 	"github.com/Viperesss/rpg-manager/person"
@@ -10,14 +11,14 @@ import (
 
 func CreatePersonage() {
 	fmt.Print("Введите имя героя: ")
-	input, err := utils.StringReader()
+	input, err := utils.StringReader(os.Stdin)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
 	fmt.Print("Выберите класс героя\n1 - Воин\n2 - Маг\n3 - Стрелок\n")
-	heroClass, err := utils.StringReader()
+	heroClass, err := utils.StringReader(os.Stdin)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -44,7 +45,7 @@ func CreatePersonage() {
 
 func CharacteristicUp() {
 	fmt.Print("Введите имя героя: ")
-	heroName, err := utils.StringReader()
+	heroName, err := utils.StringReader(os.Stdin)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -57,7 +58,7 @@ func CharacteristicUp() {
 	}
 
 	fmt.Print("\nВыбирете одну характеристику для улучшения:\n1 - Сопротивление к урону\n2 - Сила\n3 - Жизнеспособность\n")
-	input, err := utils.StringReader()
+	input, err := utils.StringReader(os.Stdin)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -87,7 +88,7 @@ func ShowPerson() {
 		fmt.Println("Список пуст")
 	} else {
 		fmt.Print("Введите имя героя: ")
-		heroName, err := utils.StringReader()
+		heroName, err := utils.StringReader(os.Stdin)
 		if err != nil {
 			fmt.Println(err)
 			return
